@@ -3,7 +3,6 @@ import './App.css';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import ReactQuill from 'react-quill';
 
-
 class App extends React.Component {
   state = {
     form: {
