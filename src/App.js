@@ -12,7 +12,6 @@ class App extends React.Component {
     },
     editorState: '',
     defaultEditorState: templates.reset,
-    toInsert: ''
   };
 
 

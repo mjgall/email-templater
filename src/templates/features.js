@@ -40,5 +40,20 @@ export default [
     enabled: false,
     link:
       '<a href="https://help.catsone.com/article/215-access-levels">Custom access levels</a>'
+  },
+  {
+    name: 'Custom email domain',
+    enabled: false,
+    link: '<a href="https://help.catsone.com/article/184-custom-email-domains">Custom email domain</a>'
+  },
+  {
+    name: 'Applications',
+    enabled: false,
+    link: '<a href="https://help.catsone.com/article/139-building-job-applications">Building job applications</a>'
+  },
+  {
+    name: 'Utility Panel',
+    enabled: false,
+    link: '<a href="https://help.catsone.com/article/212-using-the-utility-panel">Utility Panel</a>'
   }
 ];
