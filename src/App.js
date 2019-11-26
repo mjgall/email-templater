@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import ReactQuill from 'react-quill';
+import templates from './templates';
+import { template } from '@babel/core';
 
 class App extends React.Component {
   state = {
@@ -17,32 +19,14 @@ class App extends React.Component {
       ],
       recipientFirstName: ''
     },
-    editorState: `<p>Hi {firstName},
-</br>
-</br>
-    I was just doing a review of your CATS account and wanted to know if you were aware of the following features of CATS:</br></br>
-{list}</br>I'd encourage you to review our Knowledge Base articles I have linked with those items, but I would love to set up a time for a call to cover any questions that you may have about your CATS account as well. Please feel free to <a href="https://calendly.com/mike-cats/15min">use this link to book a time for that</a>.
-    </br>
-    </br>
-    Thanks, looking forward to hearing from you!
-    </br>
-    </br>
-    Mike
-    </p>`,
-    defaultEditorState: `<p>Hi {firstName},
-    </br>
-    </br>
-        I was just doing a review of your CATS account and wanted to know if you were aware of the following features of CATS:</br></br>
-    {list}</br>I'd encourage you to review our Knowledge Base articles I have linked with those items, but I would love to set up a time for a call to cover any questions that you may have about your CATS account as well. Please feel free to <a href="https://calendly.com/mike-cats/15min">use this link to book a time for that</a>.
-        </br>
-        </br>
-        Thanks, looking forward to hearing from you!
-        </br>
-        </br>
-        Mike
-        </p>`,
+    editorState: '',
+    defaultEditorState: templates.reset,
     toInsert: ''
   };
+
+  // componentDidMount = () => {
+  //   this.setState({editorState: templates.reset})
+  // }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -58,7 +42,7 @@ class App extends React.Component {
       }
     } 
 
-    const firstNameUpdated = this.state.editorState.replace('{firstName}', this.state.form.recipientFirstName)
+    const firstNameUpdated = this.state.defaultEditorState.replace('{firstName}', this.state.form.recipientFirstName)
     const listUpdated = firstNameUpdated.replace('{list}', ul.outerHTML)
     this.setState({editorState: listUpdated})
 
@@ -118,7 +102,7 @@ class App extends React.Component {
                 <Button variant="primary" type="submit">
                   Submit
                 </Button>
-                <Button variant="secondary" onClick={()=> {this.setState({editorState: this.state.defaultEditorState})}}>
+                <Button variant="secondary" onClick={()=> {this.setState({editorState: ''})}}>
                   Reset
                 </Button>
               </Form>
