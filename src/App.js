@@ -3,20 +3,11 @@ import './App.css';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import ReactQuill from 'react-quill';
 import templates from './templates';
-import { template } from '@babel/core';
 
 class App extends React.Component {
   state = {
     form: {
-      features: [
-        { name: 'Workflow customization', enabled: false, link: '<a href="https://help.catsone.com/article/120-customizing-the-workflow">Customizing your workflow</a>'},
-        { name: 'Custom fields', enabled: false, link: '<a href="https://help.catsone.com/article/128-custom-fields">Custom fields</a>' },
-        { name: 'Email integration', enabled: false, link: '<a href="https://help.catsone.com/article/117-email-integration">Email integration</a>' },
-        { name: 'Calendar integration', enabled: false, link: '<a href="https://help.catsone.com/article/114-calendar-sync">Calendar sync</a>' },
-        { name: 'SMS', enabled: false, link: '<a href="https://help.catsone.com/article/150-sending-text-sms-messages">Sending text messages</a>' },
-        { name: 'Meeting Scheduler', enabled: false, link: '<a href="https://help.catsone.com/article/151-schedule-meetings-with-cats">Meeting Scheduler</a>' },
-        { name: 'Custom access levels', enabled: false, link: '<a href="https://help.catsone.com/article/215-access-levels">Custom access levels</a>' }
-      ],
+      features: templates.features,
       recipientFirstName: ''
     },
     editorState: '',
@@ -24,9 +15,6 @@ class App extends React.Component {
     toInsert: ''
   };
 
-  // componentDidMount = () => {
-  //   this.setState({editorState: templates.reset})
-  // }
 
   handleSubmit = e => {
     e.preventDefault();
