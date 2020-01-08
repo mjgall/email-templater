@@ -4,5 +4,4 @@ export default `<p>Hi {firstName},</br>
         </br>
         </br>Thanks, looking forward to hearing from you!
         </br>
-        </br>Mike
-        </p>`;
+        </br>Mike</p>`;
